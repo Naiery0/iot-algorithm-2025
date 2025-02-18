@@ -1,11 +1,5 @@
 # da01_queue.py
 # 큐 자료구조 구현
-
-# 초기화
-SIZE = int(input("큐 크기를 입력하세요 ==>"))
-queue = [None for _ in range(SIZE)]
-front = rear = 0
-
 # 함수 선언
 def isQueueFull():
     global SIZE, queue, front, rear
@@ -45,11 +39,25 @@ def deQueue():
         print('Queus is empty')
         return None
     else:
-        return queue[front+1]
+        front += 1
+        data = queue[front]
+        queue[front] = None
+        return data
     
 def peek():
-    pass
+    global SIZE, queue, front, rear
+    if isQueueEmpty():
+        print('Queue is empty')
+        return None
+    else:
+        return queue[front+1]
     
+
+# 초기화
+SIZE = int(input("큐 크기를 입력하세요 ==>"))
+queue = [None for _ in range(SIZE)]
+front = rear = -1
+
 
 if __name__ == '__main__':
     print('메인시작')
@@ -71,7 +79,4 @@ if __name__ == '__main__':
             print(f'확인 데이터 : {data}')
             print(f'큐 상태 : {queue}')
 
-        
-        
-        
         else: print('!!!입력오류!!!')
