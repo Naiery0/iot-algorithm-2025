@@ -50,7 +50,6 @@ def growRich():
     print('## 메모이제이션 (황금미로길)')
     printMaze(memo)
 
-    return retValue
 
 # 전역 변수
 ROW, COL = 5, 5
